@@ -1,9 +1,6 @@
-# NeoButton
+# NeoButton (NOT COMPLETED!!! NOT READY FOR USE!!! JUST PREVIEW!!!)
 
-[![CI Status](https://img.shields.io/travis/Igor Kotkovets/NeoButton.svg?style=flat)](https://travis-ci.org/Igor Kotkovets/NeoButton)
-[![Version](https://img.shields.io/cocoapods/v/NeoButton.svg?style=flat)](https://cocoapods.org/pods/NeoButton)
-[![License](https://img.shields.io/cocoapods/l/NeoButton.svg?style=flat)](https://cocoapods.org/pods/NeoButton)
-[![Platform](https://img.shields.io/cocoapods/p/NeoButton.svg?style=flat)](https://cocoapods.org/pods/NeoButton)
+![GitHub Logo](output.gif)
 
 ## Example
 
