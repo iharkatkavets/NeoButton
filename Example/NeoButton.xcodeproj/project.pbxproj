@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		424C9B311FD9185FCCB26416 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		424C9B311FD9185FCCB26416 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* NeoButton_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoButton_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,13 +39,13 @@
 		607FACE51AFB9204008FA782 /* NeoButton_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeoButton_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		63F550C686EA1FC48DBFFAD9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		63F550C686EA1FC48DBFFAD9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		68768F586ECFA73049F84C23 /* Pods-NeoButton_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeoButton_Example.debug.xcconfig"; path = "Target Support Files/Pods-NeoButton_Example/Pods-NeoButton_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		7E7BDDC14A432D99520BE373 /* Pods-NeoButton_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeoButton_Example.release.xcconfig"; path = "Target Support Files/Pods-NeoButton_Example/Pods-NeoButton_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BF668CAEFE70EC59A6741F38 /* Pods-NeoButton_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeoButton_Tests.debug.xcconfig"; path = "Target Support Files/Pods-NeoButton_Tests/Pods-NeoButton_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CAFC5F1FEE979C821C5BDFFA /* Pods_NeoButton_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeoButton_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D84F44913CF827BDBCF4D912 /* Pods-NeoButton_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeoButton_Tests.release.xcconfig"; path = "Target Support Files/Pods-NeoButton_Tests/Pods-NeoButton_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		E8D593B71ACAC14B0818D641 /* NeoButton.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = NeoButton.podspec; path = ../NeoButton.podspec; sourceTree = "<group>"; };
+		E8D593B71ACAC14B0818D641 /* NeoButton.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NeoButton.podspec; path = ../NeoButton.podspec; sourceTree = "<group>"; };
 		FB97E11398D26FC3347B8770 /* Pods_NeoButton_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeoButton_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -156,7 +156,6 @@
 				BF668CAEFE70EC59A6741F38 /* Pods-NeoButton_Tests.debug.xcconfig */,
 				D84F44913CF827BDBCF4D912 /* Pods-NeoButton_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -213,6 +212,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = L454S9SQH7;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -227,6 +227,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -478,6 +479,7 @@
 			baseConfigurationReference = 68768F586ECFA73049F84C23 /* Pods-NeoButton_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L454S9SQH7;
 				INFOPLIST_FILE = NeoButton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -493,6 +495,7 @@
 			baseConfigurationReference = 7E7BDDC14A432D99520BE373 /* Pods-NeoButton_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L454S9SQH7;
 				INFOPLIST_FILE = NeoButton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;

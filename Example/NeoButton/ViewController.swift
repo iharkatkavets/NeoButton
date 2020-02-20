@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import NeoButton
 
 class ViewController: UIViewController {
+    @IBOutlet weak var radiusSlider: UISlider!
+    @IBOutlet weak var neoButton: NeoButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,5 +23,20 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func radiusDidChange(_ sender: UISlider) {
+        neoButton.radius = CGFloat(sender.value)
+    }
+
+    @IBAction func distanceDidChange(_ sender: UISlider) {
+        neoButton.distance = CGFloat(sender.value)
+    }
+
+    @IBAction func blurDidChange(_ sender: UISlider) {
+        neoButton.blur = CGFloat(sender.value)
+    }
+
+    @IBAction func intensityDidChange(_ sender: UISlider) {
+        neoButton.intensity = sender.value
+    }
 }
 
