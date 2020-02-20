@@ -1,0 +1,16 @@
+PODS:
+  - NeoButton (0.1.0)
+
+DEPENDENCIES:
+  - NeoButton (from `../`)
+
+EXTERNAL SOURCES:
+  NeoButton:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  NeoButton: 3fa79fa250c0cb025bc48fe60b2be1927b767210
+
+PODFILE CHECKSUM: 6d483a7b6ae325322aafcb923476ca6e3a1ab05a
+
+COCOAPODS: 1.8.4

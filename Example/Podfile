@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'NeoButton_Example' do
+  pod 'NeoButton', :path => '../'
+
+  target 'NeoButton_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
