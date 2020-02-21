@@ -21,19 +21,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var intensityValueLabel: UILabel!
     @IBOutlet weak var blurValueLabel: UILabel!
     @IBOutlet weak var radiusValueLabel: UILabel!
-    @IBOutlet var coloredButtons: [UIButton]!
+    @IBOutlet var buttonColors: [UIButton]!
+    @IBOutlet var viewControllerColors: [UIButton]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        coloredButtons.forEach { (btn) in
-            btn.addTarget(self, action: #selector(didSelectColor(_:)), for: .touchDown)
+        buttonColors.forEach { (btn) in
+            btn.addTarget(self, action: #selector(didSelectNeoButtonColor), for: .touchDown)
+        }
+
+        viewControllerColors.forEach { (btn) in
+            btn.addTarget(self, action: #selector(didSelectViewControllerColor), for: .touchDown)
         }
     }
 
-    @IBAction func didSelectColor(_ button: UIButton) {
-        self.view.backgroundColor = button.backgroundColor
+    @IBAction func didSelectNeoButtonColor(_ button: UIButton) {
         self.neoButton.color = button.backgroundColor!
+    }
+
+    @IBAction func didSelectViewControllerColor(_ button: UIButton) {
+        self.view.backgroundColor = button.backgroundColor
     }
 
     override func didReceiveMemoryWarning() {
