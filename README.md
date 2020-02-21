@@ -1,4 +1,4 @@
-# NeoButton (NOT COMPLETED!!! NOT READY FOR USE!!! JUST PREVIEW!!!)
+# NeoButton (NOT COMPLETED, BUT MOSTLY READY FOR USE!!!)
 
 ![GitHub Logo](output.gif)
 
@@ -7,6 +7,8 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+iOS 10 and higher
 
 ## Installation
 

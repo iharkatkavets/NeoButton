@@ -20,12 +20,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0f-4f-qFV" customClass="NeoButton" customModule="NeoButton">
-                                <rect key="frame" x="155.5" y="58" width="64" height="64"/>
+                                <rect key="frame" x="139.5" y="58" width="96" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="P0f-4f-qFV" secondAttribute="height" multiplier="1:1" id="Eit-pQ-dr7"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="NeoButton"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="radius">
                                         <real key="value" value="5"/>
@@ -141,7 +142,7 @@
                                                     <constraint firstItem="RtS-GA-A6C" firstAttribute="width" secondItem="I2G-ZG-4lX" secondAttribute="width" id="kmc-m6-3Zl"/>
                                                 </constraints>
                                             </stackView>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.40000000000000002" minValue="0.01" maxValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-7S-PfJ">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.59999999999999998" minValue="0.01" maxValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-7S-PfJ">
                                                 <rect key="frame" x="-2" y="20.5" width="347" height="31"/>
                                                 <connections>
                                                     <action selector="intensityDidChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="SRd-kS-sDd"/>

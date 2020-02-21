@@ -12,7 +12,7 @@ import os.log
     let darkShadowLayer = CALayer()
     let lightShadowLayer = CALayer()
     let shape = CALayer()
-    let outLog = OSLog(subsystem: "kotkovets", category: String(describing: self))
+    let outLog = OSLog(subsystem: "NeoButton", category: String(describing: self))
 
     var radiusInternal: CGFloat = 3
     @IBInspectable public var radius: CGFloat {
@@ -53,8 +53,8 @@ import os.log
         get { return blurNormal }
     }
 
-    var intensityNormal: Float = 0.4
-    let intensityHighlighted: Float = 0.6
+    var intensityNormal: Float = 0.6
+    let intensityHighlighted: Float = 0.3
     @IBInspectable public var intensity: Float {
         set {
             intensityNormal = newValue.clamped(to: 0.01...0.6)
