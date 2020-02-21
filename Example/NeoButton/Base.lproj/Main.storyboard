@@ -39,6 +39,30 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="d2X-N4-B9x">
+                                <rect key="frame" x="16" y="383" width="343" height="34"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qyp-0Z-P7X">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="34"/>
+                                        <color key="backgroundColor" red="0.33333333329999998" green="0.72549019609999998" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eZ-FU-ebx">
+                                        <rect key="frame" x="104.5" y="0.0" width="30" height="34"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgO-5Y-HKQ">
+                                        <rect key="frame" x="208.5" y="0.0" width="30" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AL8-CB-s75">
+                                        <rect key="frame" x="313" y="0.0" width="30" height="34"/>
+                                        <color key="backgroundColor" red="0.95686274766921997" green="0.26274511218070984" blue="0.21176470816135406" alpha="1" colorSpace="calibratedRGB"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="X0K-MH-EPu"/>
+                                </constraints>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Djj-Qz-7S4">
                                 <rect key="frame" x="16" y="433" width="343" height="202"/>
                                 <subviews>
@@ -142,7 +166,7 @@
                                                     <constraint firstItem="RtS-GA-A6C" firstAttribute="width" secondItem="I2G-ZG-4lX" secondAttribute="width" id="kmc-m6-3Zl"/>
                                                 </constraints>
                                             </stackView>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.59999999999999998" minValue="0.01" maxValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-7S-PfJ">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.59999999999999998" minValue="0.01" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-7S-PfJ">
                                                 <rect key="frame" x="-2" y="20.5" width="347" height="31"/>
                                                 <connections>
                                                     <action selector="intensityDidChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="SRd-kS-sDd"/>
@@ -195,8 +219,11 @@
                             <constraint firstItem="Djj-Qz-7S4" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="2GI-lH-N3R"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Djj-Qz-7S4" secondAttribute="bottom" constant="32" id="CHc-ah-ACv"/>
                             <constraint firstItem="P0f-4f-qFV" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="DvO-rD-DyX"/>
+                            <constraint firstAttribute="trailing" secondItem="d2X-N4-B9x" secondAttribute="trailing" constant="16" id="K4Q-LT-sr4"/>
                             <constraint firstAttribute="trailing" secondItem="Djj-Qz-7S4" secondAttribute="trailing" constant="16" id="QDS-wO-mbg"/>
                             <constraint firstItem="P0f-4f-qFV" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="58" id="WZo-eI-Osd"/>
+                            <constraint firstItem="d2X-N4-B9x" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="kMK-ov-jJR"/>
+                            <constraint firstItem="Djj-Qz-7S4" firstAttribute="top" secondItem="d2X-N4-B9x" secondAttribute="bottom" constant="16" id="nZ6-Et-waA"/>
                         </constraints>
                     </view>
                     <connections>
@@ -209,6 +236,10 @@
                         <outlet property="neoButton" destination="P0f-4f-qFV" id="KUr-CO-6MR"/>
                         <outlet property="radiusSlider" destination="4Pd-X6-qeJ" id="Jip-fR-jSu"/>
                         <outlet property="radiusValueLabel" destination="qeX-RG-C2b" id="cSi-qt-llt"/>
+                        <outletCollection property="coloredButtons" destination="Qyp-0Z-P7X" collectionClass="NSMutableArray" id="6lu-Qd-HY7"/>
+                        <outletCollection property="coloredButtons" destination="0eZ-FU-ebx" collectionClass="NSMutableArray" id="e93-vg-Oro"/>
+                        <outletCollection property="coloredButtons" destination="sgO-5Y-HKQ" collectionClass="NSMutableArray" id="Stx-hc-Ldv"/>
+                        <outletCollection property="coloredButtons" destination="AL8-CB-s75" collectionClass="NSMutableArray" id="Y8y-YB-kvx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

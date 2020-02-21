@@ -15,59 +15,65 @@ import os.log
     let outLog = OSLog(subsystem: "NeoButton", category: String(describing: self))
 
     var radiusInternal: CGFloat = 3
-    @IBInspectable public var radius: CGFloat {
+    @IBInspectable
+    public dynamic var radius: CGFloat {
         set {
             radiusInternal = newValue.clamped(to: 0...min(bounds.size.width, bounds.size.height)/2)
             if #available(iOS 12.0, *) {
                 os_log(.info, log: outLog, "setRadius: %{public}f", radiusInternal)
             }
-            applyNormalStateDesign()
+            applyState()
         }
         get { return radiusInternal }
     }
 
-    var distanceNormal: CGFloat = 3.25
+    var distanceNormal: CGFloat = 3.0
     let distanceHighlighted: CGFloat = 1
-    @IBInspectable public var distance: CGFloat {
+    @IBInspectable
+    public dynamic var distance: CGFloat {
         set {
             distanceNormal = newValue.clamped(to: 3...50)
             blurNormal = 2*newValue
             if #available(iOS 12.0, *) {
                 os_log(.info, log: outLog, "setDistance: %{public}f setBlur: %{public}f", distanceNormal, blurNormal)
             }
-            applyNormalStateDesign()
+            applyState()
         }
         get { return distanceNormal }
     }
 
-    var blurNormal: CGFloat = 6.5
+    var blurNormal: CGFloat = 3.4
     let blurHighlighted: CGFloat = 2
-    @IBInspectable public var blur: CGFloat {
+    @IBInspectable
+    public dynamic var blur: CGFloat {
         set {
             blurNormal = newValue
             if #available(iOS 12.0, *) {
                 os_log(.info, log: outLog, "setBlur: %{public}f", blurNormal)
             }
-            applyNormalStateDesign()
+            applyState()
         }
         get { return blurNormal }
     }
 
     var intensityNormal: Float = 0.6
     let intensityHighlighted: Float = 0.3
-    @IBInspectable public var intensity: Float {
+
+    @IBInspectable
+    public dynamic var intensity: Float {
         set {
-            intensityNormal = newValue.clamped(to: 0.01...0.6)
+            intensityNormal = newValue.clamped(to: 0.01...1)
             if #available(iOS 12.0, *) {
                 os_log(.info, log: outLog, "setIntensity: %{public}f", intensityNormal)
             }
-            applyNormalStateDesign()
+            applyState()
         }
         get { return intensityNormal }
     }
 
     var shapeColor = UIColor.gray
-    @IBInspectable public var color: UIColor {
+    @IBInspectable
+    public dynamic var color: UIColor {
         set {
             shapeColor = newValue
             shape.backgroundColor = newValue.cgColor
@@ -201,7 +207,7 @@ import os.log
     public override var isEnabled: Bool {
         set {
             if #available(iOS 12.0, *) {
-                os_log(.info, log: outLog, "setisEnabled:: %{public}s", newValue ? "true":"false")
+                os_log(.info, log: outLog, "setEnabled:: %{public}s", newValue ? "true":"false")
             }
             super.isEnabled = newValue
             applyState()
@@ -214,26 +220,38 @@ import os.log
 }
 
 public extension UIColor {
-    func lighter(by percentage: CGFloat = 50.0) -> UIColor {
-        return self.adjustBrightness(by: abs(percentage))
+    func lighter(by value: CGFloat = -0.5) -> UIColor {
+//        return adjustSaturation(by: value)
+        return adjustBrightness(by: value)
     }
 
-    func darker(by percentage: CGFloat = 50.0) -> UIColor {
-        return self.adjustBrightness(by: -abs(percentage))
+    func darker(by value: CGFloat = 0.5) -> UIColor {
+        return adjustBrightness(by: value)
     }
 
-    func adjustBrightness(by percentage: CGFloat) -> UIColor {
-        var red: CGFloat = 0.0
-        var green: CGFloat = 0.0
-        var blue: CGFloat = 0.0
-        var alpha: CGFloat = 0.0
+    func adjustSaturation(by value: CGFloat) -> UIColor {
+        var h: CGFloat = 0.0
+        var s: CGFloat = 0.0
+        var b: CGFloat = 0.0
+        var a: CGFloat = 0.0
 
-        if self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
-            let pFactor = (100.0 + percentage) / 100.0
-            let newRed = (red*pFactor).clamped(to: 0.0 ... 1.0)
-            let newGreen = (green*pFactor).clamped(to: 0.0 ... 1.0)
-            let newBlue = (blue*pFactor).clamped(to: 0.0 ... 1.0)
-            return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: alpha)
+        if self.getHue(&h, saturation: &s, brightness: &b, alpha: &a) {
+            s = max(0,s-value)
+            return UIColor(hue: h, saturation: s, brightness: b, alpha: a)
+        }
+
+        return self
+    }
+
+    func adjustBrightness(by value: CGFloat) -> UIColor {
+        var h: CGFloat = 0.0
+        var s: CGFloat = 0.0
+        var b: CGFloat = 0.0
+        var a: CGFloat = 0.0
+
+        if self.getHue(&h, saturation: &s, brightness: &b, alpha: &a) {
+            b = (b-value).clamped(to: 0...1)
+            return UIColor(hue: h, saturation: s, brightness: b, alpha: a)
         }
 
         return self
