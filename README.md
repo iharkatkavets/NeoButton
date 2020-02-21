@@ -2,6 +2,8 @@
 
 ![GitHub Logo](output.gif)
 
+Inspired by https://neumorphism.io/#55b9f3
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
