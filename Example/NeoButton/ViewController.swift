@@ -8,14 +8,22 @@
 
 import UIKit
 import NeoButton
+import os.log
 
 class ViewController: UIViewController {
     @IBOutlet weak var radiusSlider: UISlider!
+    @IBOutlet weak var distanceSlider: UISlider!
+    @IBOutlet weak var blurSlider: UISlider!
+    @IBOutlet weak var intensitySlider: UISlider!
     @IBOutlet weak var neoButton: NeoButton!
+    let outLog = OSLog(subsystem: "NeoButton", category: String(describing: self))
+    @IBOutlet weak var distanceValueLabel: UILabel!
+    @IBOutlet weak var intensityValueLabel: UILabel!
+    @IBOutlet weak var blurValueLabel: UILabel!
+    @IBOutlet weak var radiusValueLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,20 +31,34 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        radiusDidChange(radiusSlider)
+        distanceDidChange(distanceSlider)
+        blurDidChange(blurSlider)
+        intensityDidChange(intensitySlider)
+    }
+
     @IBAction func radiusDidChange(_ sender: UISlider) {
         neoButton.radius = CGFloat(sender.value)
+        radiusValueLabel.text = String(format: "Radius: %.2f", neoButton.radius)
     }
 
     @IBAction func distanceDidChange(_ sender: UISlider) {
         neoButton.distance = CGFloat(sender.value)
+        distanceValueLabel.text = String(format: "Distance: %.2f", neoButton.distance)
+        blurValueLabel.text = String(format: "Blur: %.2f", neoButton.blur)
     }
 
     @IBAction func blurDidChange(_ sender: UISlider) {
         neoButton.blur = CGFloat(sender.value)
+        blurValueLabel.text = String(format: "Blur: %.2f", neoButton.blur)
     }
 
     @IBAction func intensityDidChange(_ sender: UISlider) {
         neoButton.intensity = sender.value
+        intensityValueLabel.text = String(format: "Intensity: %.2f", neoButton.intensity)
     }
 }
 
