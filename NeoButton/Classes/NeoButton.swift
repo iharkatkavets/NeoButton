@@ -77,8 +77,8 @@ import os.log
         set {
             shapeColor = newValue
             shape.backgroundColor = newValue.cgColor
-            lightShadowLayer.shadowColor = newValue.lighter().cgColor
-            darkShadowLayer.shadowColor = newValue.darker().cgColor
+            lightShadowLayer.shadowColor = lightShadowColor(newValue).cgColor
+            darkShadowLayer.shadowColor = darkShadowColor(newValue).cgColor
         }
         get { return shapeColor }
     }
@@ -133,7 +133,7 @@ import os.log
 
     func applyNormalStateDesign() {
         darkShadowLayer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: radiusInternal).cgPath
-        darkShadowLayer.shadowColor = shapeColor.darker().cgColor
+        darkShadowLayer.shadowColor = darkShadowColor(shapeColor).cgColor
         darkShadowLayer.shadowOpacity = intensityNormal
         darkShadowLayer.shadowRadius = blurNormal
         darkShadowLayer.shadowOffset = CGSize(width: distanceNormal, height: distanceNormal)
@@ -141,8 +141,8 @@ import os.log
         darkShadowLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
 
         lightShadowLayer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: radiusInternal).cgPath
-        lightShadowLayer.shadowColor = shapeColor.lighter().cgColor
-        lightShadowLayer.shadowOpacity = intensityNormal
+        lightShadowLayer.shadowColor = lightShadowColor(shapeColor).cgColor
+        lightShadowLayer.shadowOpacity = 0.5*intensityNormal.clamped(to: 0.1...1)
         lightShadowLayer.shadowRadius = blurNormal
         lightShadowLayer.shadowOffset = CGSize(width: -distanceNormal, height: -distanceNormal)
         lightShadowLayer.bounds = bounds
@@ -156,7 +156,7 @@ import os.log
 
     func applyHighlightedStateDesign() {
         darkShadowLayer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: radiusInternal).cgPath
-        darkShadowLayer.shadowColor = shapeColor.darker().cgColor
+        darkShadowLayer.shadowColor = darkShadowColor(shapeColor).cgColor
         darkShadowLayer.shadowOpacity = intensityHighlighted
         darkShadowLayer.shadowRadius = blurHighlighted
         darkShadowLayer.shadowOffset = CGSize(width: distanceHighlighted, height: distanceHighlighted)
@@ -164,7 +164,7 @@ import os.log
         darkShadowLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
 
         lightShadowLayer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: radiusInternal).cgPath
-        lightShadowLayer.shadowColor = shapeColor.lighter().cgColor
+        lightShadowLayer.shadowColor = lightShadowColor(shapeColor).cgColor
         lightShadowLayer.shadowOpacity = intensityHighlighted
         lightShadowLayer.shadowRadius = blurHighlighted
         lightShadowLayer.shadowOffset = CGSize(width: -distanceHighlighted, height: -distanceHighlighted)
@@ -217,17 +217,19 @@ import os.log
         }
     }
 
+    func lightShadowColor(_ color: UIColor) -> UIColor {
+        return color.adjustSaturation(by: 0.5)
+//        return color.adjustBrightness(by: value)
+    }
+
+    func darkShadowColor(_ color: UIColor) -> UIColor {
+        return color.adjustBrightness(by: 0.5)
+    }
+
 }
 
 public extension UIColor {
-    func lighter(by value: CGFloat = -0.5) -> UIColor {
-//        return adjustSaturation(by: value)
-        return adjustBrightness(by: value)
-    }
 
-    func darker(by value: CGFloat = 0.5) -> UIColor {
-        return adjustBrightness(by: value)
-    }
 
     func adjustSaturation(by value: CGFloat) -> UIColor {
         var h: CGFloat = 0.0
